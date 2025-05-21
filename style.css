@@ -1,0 +1,226 @@
+:root {
+  --primary: #2563eb;
+  --text: #1f2937;
+  --bg: #f9fafb;
+  --border: #e5e7eb;
+  --secondary-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+  --primary: #60a5fa;
+  --text: #e5e7eb;
+  --bg: #111827;
+  --border: #374151;
+  --secondary-bg: #1f2937;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --shadow-hover: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="solarized"] {
+  --primary: #b58900;
+  --text: #586e75;
+  --bg: #fdf6e3;
+  --border: #93a1a1;
+  --secondary-bg: #eee8d5;
+  --shadow: rgba(147, 161, 161, 0.2);
+  --shadow-hover: rgba(147, 161, 161, 0.3);
+}
+
+[data-theme="black"] {
+  --primary: #38bdf8;
+  --text: #ffffff;
+  --bg: #000000;
+  --border: #27272a;
+  --secondary-bg: #18181b;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --shadow-hover: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-carousel {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.25rem;
+  background: var(--secondary-bg);
+  padding: 0.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px var(--shadow);
+  z-index: 1000;
+  transform: scale(0.8);
+}
+
+.theme-btn {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  background: var(--bg);
+}
+
+.theme-btn.active {
+  background: var(--primary);
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+@media (orientation: landscape) {
+  .container {
+    max-width: 33.333vw;
+  }
+}
+
+@media (orientation: portrait) {
+  .container {
+    max-width: 66.666vw;
+  }
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem 0 2rem;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.input-area {
+  background: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow);
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-area:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px var(--shadow-hover);
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--shadow);
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: var(--primary);
+  color: var(--secondary-bg);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.stats {
+  font-size: 0.875rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--secondary-bg);
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+#fileInput {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

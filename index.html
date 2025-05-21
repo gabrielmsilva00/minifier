@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Minifier</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%221em%22 font-size=%2280%22>🔨</text></svg>">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- CSSO for CSS minification -->
+  <script src="https://unpkg.com/csso@4.2.0/dist/csso.min.js"></script>
+
+  <!-- Terser for JS minification -->
+  <script src="https://cdn.jsdelivr.net/npm/terser/dist/bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="theme-carousel">
+    <button class="theme-btn" data-theme="white" title="Light theme">☀️</button>
+    <button class="theme-btn" data-theme="solarized" title="Solarized theme">🌖</button>
+    <button class="theme-btn" data-theme="dark" title="Dark theme">🌓</button>
+    <button class="theme-btn" data-theme="black" title="Dark theme">🌑</button>
+  </div>
+
+  <div class="container">
+    <h1>Web Minifier</h1>
+    
+    <div class="input-area">
+      <textarea id="input" placeholder="Paste HTML, CSS, or JavaScript here..."></textarea>
+      <div class="btn-group">
+        <button class="btn" onclick="minify()">Minify 🔄</button>
+        <button class="btn" onclick="document.getElementById('fileInput').click()">Upload 📂</button>
+        <input type="file" id="fileInput" accept=".html,.js,.css">
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+
+    <div class="input-area">
+      <textarea id="output" placeholder="Minified output will appear here..." readonly></textarea>
+      <button class="btn" onclick="copyToClipboard()">Copy 📋</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>Powered by Terser (JS), CSSO (CSS), and custom minification (HTML) 🛠️</p>
+  </footer>
+</body>
+</html>
